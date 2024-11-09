@@ -1,0 +1,143 @@
+.congdong {
+background: #e3e3f2;
+padding: 10px 10px;
+border-radius: 8px;
+background: #0000000a;
+}
+.choncongdong{
+border-radius: 5px;
+-webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+margin-bottom: 10px;
+}
+.choncongdong::after{
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+opacity: 0;
+-webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.choncongdong:hover {
+-webkit-transform: scale(1.10, 1.10);
+transform: scale(1.10, 1.10);
+}
+.timbay:hover{
+background-image: url('../img/timbay.gif');    
+}
+.choncongdong:hover::after:{
+opacity: 1;
+} 
+.cd{
+padding: .275rem .75rem;
+font-size: 15px;
+}
+body {
+background-color: #eff4ff;
+}
+
+.auth-wrapper {
+flex: 1 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 50px 15px 30px 15px;
+}
+
+.auth-content {
+max-width: 400px;
+flex-basis: 400px;
+box-shadow: 0 5px 20px #d6dee4;
+}
+
+.home-link {
+position: absolute;
+left: 5px;
+top: 10px;
+}
+.tasks-list>li {
+padding-right: 0;
+padding-left: 0;
+padding: .8rem 1.5rem;
+}
+.task-actions {
+display: none;
+position: absolute;
+right: 20px;
+top: 50%;
+margin-top: -15px;
+}
+.task-actions>a.dropdown-toggle {
+color: #aaa;
+height: 30px;
+width: 30px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+}
+.task-info {
+padding-left: 34px;
+}
+.tasks-list>li .checkbox input:checked~span {
+text-decoration: line-through;
+}
+.tasks-list>li:hover .task-actions {
+display: block
+}
+.list-group{
+max-height: 350px;
+margin-bottom: 10px;
+overflow-y:auto;
+-webkit-overflow-scrolling: touch;
+}
+.avt-mess{
+float:left;
+width: 24px;
+height: 24px;
+margin-right:5px;
+border-radius:100%;
+}
+.tich-blue{
+width: 15px;
+height: 15px;
+}
+.hoangvanlinh {
+text-shadow: 0 0 5px #0099FF, 0 0 5px #FF66FF, 1px 1px 0 #FF3333;
+color: white;
+font-weight: bold;
+font-weight: red ;
+background: url(https://i.imgur.com/1ZHeaAQ.gif);
+}
+.linhsexy {
+color: #43cc84;
+font-weight: bold;
+background-image: url(https://i.imgur.com/i8yb81c.gif);
+text-shadow: 0 0 5px #43cc84;
+}
+.hoangvanlinh1 {
+background: url("https://i.imgur.com/1ZHeaAQ.gif") repeat scroll 0 0%,url("https://i.imgur.com/1ZHeaAQ.gif") repeat scroll 0 0;
+color: #fff;
+font-weight: bold;
+text-shadow: 0 0 3px #4287f5,0 0 7px #4287f5;
+}
+.linhsexy1 {
+color: #ff0000;
+font-weight: bold;
+background-image: url(https://i.imgur.com/ELhX94s.gif);
+text-shadow: 0 0 5px #f00;
+}
+body{
+cursor: url('../img/arrow.cur'), auto;
+}
+li:hover,a:hover,input:hover,select:hover,button:hover{
+cursor: url('../img/hover.cur'), auto;
+}
+.box-ui{
+background-color: #e3e3f2; border-radius: 8px
+}
+.nav-img{
+background: url("https://images.unsplash.com/photo-1496284045406-d3e0b918d7ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80");
+-webkit-background-size: cover; -moz-background-size: cover;-o-background-size: cover;background-size: cover;
+}
+.card-fix{
+border-bottom: none;
+}
