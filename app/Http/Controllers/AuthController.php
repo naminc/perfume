@@ -47,21 +47,25 @@ public function login(Request $request)
 // Xử lý đăng ký
 public function register(Request $request)
 {
-try {
-    $request->validate([
-        'email' => 'required|email|unique:users,email',
-        'username' => 'required|unique:users,username|min:6',
-        'password' => 'required|confirmed|min:8',
-    ], [
-        'email.required' => 'Vui lòng nhập email.',
-        'email.email' => 'Địa chỉ email không hợp lệ.',
-        'email.unique' => 'Email đã tồn tại.',
-        'username.required' => 'Vui lòng nhập tên tài khoản.',
-        'username.min' => 'Tên tài khoản phải có ít nhất 6 ký tự.',
-        'password.required' => 'Vui lòng nhập mật khẩu.',
-        'password.confirmed' => 'Mật khẩu xác nhận không khớp.',
-        'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
-    ]);
+    try {
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'username' => 'required|unique:users,username|min:6',
+            'password' => 'required|min:8',
+            'fullname' => 'required|string|max:255',
+            'terms' => 'accepted',
+        ], [
+            'email.required' => 'Vui lòng nhập email.',
+            'email.email' => 'Địa chỉ email không hợp lệ.',
+            'email.unique' => 'Email đã tồn tại.',
+            'username.required' => 'Vui lòng nhập tên tài khoản.',
+            'username.unique' => 'Tên tài khoản đã tồn tại. Vui lòng chọn tên khác.',
+            'username.min' => 'Tên tài khoản phải có ít nhất 6 ký tự.',
+            'password.required' => 'Vui lòng nhập mật khẩu.',
+            'password.min' => 'Mật khẩu phải có ít nhất 8 ký tự.',
+            'fullname.required' => 'Vui lòng nhập họ và tên.',
+            'terms.accepted' => 'Bạn phải đồng ý với Điều khoản và Điều kiện.',
+        ]);
     
     // Kiểm tra lỗi xác thực
     if ($errors = session('errors')) {

@@ -60,38 +60,43 @@
               <div class="col-lg-6 col-md-6 col-sm-12">
                 <div class="login-item">
                   <h5 class="title-login">Đăng ký tài khoản</h5>
-                  <form action="{{ route('register') }}" method="POST" class="register">@csrf
-                    <!-- CSRF token để bảo mật -->@if ($errors->getBag('register')->any())
-                    <div>@foreach ($errors->getBag('register')->all() as $error)
-                      <p class="text-danger">{{ $error }}</p>@endforeach</div>@endif
-                    <p class="form-row form-row-wide">
-                      <label class="text">Email</label>
-                      <input name="email" type="email" class="input-text" title="email" required>
-                    </p>
-                    <p class="form-row form-row-wide">
-                      <label class="text">Tài khoản</label>
-                      <input name="username" type="text" class="input-text" title="username" required>
-                    </p>
-                    <p class="form-row form-row-wide">
-                      <label class="text">Mật khẩu</label>
-                      <input name="password" type="password" class="input-text" title="pass" required>
-                    </p>
-                    <p class="form-row form-row-wide">
-                      <label class="text">Xác nhận Mật khẩu</label>
-                      <input name="password_confirmation" type="password" class="input-text" title="confirm_password" required>
-                    </p>
-                    <p class="form-row">
-                      <span class="inline">
-                        <input type="checkbox" id="cb2" name="terms" required>
-                        <label for="cb2" class="label-text">I agree to
-                          <span>Terms & Conditions</span>
-                        </label>
-                      </span>
-                    </p>
-                    <p class="">
-                      <input type="submit" class="button-submit" value="Đăng Ký">
-                    </p>
-                  </form>
+                  <form action="{{ route('register') }}" method="POST" class="register">
+    @csrf
+    @if ($errors->getBag('register')->any())
+        <div>
+            @foreach ($errors->getBag('register')->all() as $error)
+                <p class="text-danger">{{ $error }}</p>
+            @endforeach
+        </div>
+    @endif
+
+    <p class="form-row form-row-wide">
+        <label class="text">Email</label>
+        <input name="email" type="email" class="input-text" title="email" required>
+    </p>
+    <p class="form-row form-row-wide">
+        <label class="text">Tài khoản</label>
+        <input name="username" type="text" class="input-text" title="username" required>
+    </p>
+    <p class="form-row form-row-wide">
+        <label class="text">Họ và Tên</label>
+        <input name="fullname" type="text" class="input-text" title="fullname" required>
+    </p>
+    <p class="form-row form-row-wide">
+        <label class="text">Mật khẩu</label>
+        <input name="password" type="password" class="input-text" title="pass" required>
+    </p>
+    <p class="form-row">
+        <span class="inline">
+            <input type="checkbox" id="cb2" name="terms" checked>
+            <label for="cb2" class="label-text">I agree to <span>Terms & Conditions</span></label>
+        </span>
+    </p>
+    <p class="">
+        <input type="submit" class="button-submit" value="Đăng Ký">
+    </p>
+</form>
+
                 </div>
               </div>
             </div>

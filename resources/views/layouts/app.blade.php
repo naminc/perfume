@@ -62,11 +62,18 @@
                         </ul>
                     </div>
                 </div>
+                
                 <ul class="header-user-links">
-                    <li>
-                        <a href="{{ route('login') }}">Login or Register</a>
-                    </li>
-                </ul>
+    <li>
+        @if (Auth::check())
+
+            <a href="{{ route('profile') }}">{{ Auth::user()->username }}</a><span>    |    </span>
+            <a href="{{ route('logout') }}">Đăng xuất</a>
+        @else
+            <a href="{{ route('login') }}">Login or Register</a>
+        @endif
+    </li>
+</ul>
             </div>
         </div>
     </div>
@@ -75,7 +82,7 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-4 col-md-3 col-xs-7 col-ts-12 header-element">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="/">
                             <img src="{{ asset('assets/images/logo.png') }}" alt="img">
                         </a>
                     </div>
@@ -125,59 +132,96 @@
                             </div>
                         </div>
                         <div class="block-account block-header stelina-dropdown">
-                            <a href="javascript:void(0);" data-stelina="stelina-dropdown">
-                                <span class="flaticon-user"></span>
-                            </a>
-                            <div class="header-account stelina-submenu">
-                                <div class="header-user-form-tabs">
-                                    <ul class="tab-link">
-                                        <li class="active">
-                                            <a data-toggle="tab" aria-expanded="true" href="#header-tab-login">Login</a>
-                                        </li>
-                                        <li>
-                                            <a data-toggle="tab" aria-expanded="true" href="#header-tab-rigister">Register</a>
-                                        </li>
-                                    </ul>
-                                    <div class="tab-container">
-                                        <div id="header-tab-login" class="tab-panel active">
-                                            <form method="post" class="login form-login">
-                                                <p class="form-row form-row-wide">
-                                                    <input type="email" placeholder="Email" class="input-text">
-                                                </p>
-                                                <p class="form-row form-row-wide">
-                                                    <input type="password" class="input-text" placeholder="Password">
-                                                </p>
-                                                <p class="form-row">
-                                                    <label class="form-checkbox">
-                                                        <input type="checkbox" class="input-checkbox">
-                                                        <span>
-																Remember me
-															</span>
-                                                    </label>
-                                                    <input type="submit" class="button" value="Login">
-                                                </p>
-                                                <p class="lost_password">
-                                                    <a href="#">Lost your password?</a>
-                                                </p>
-                                            </form>
-                                        </div>
-                                        <div id="header-tab-rigister" class="tab-panel">
-                                            <form method="post" class="register form-register">
-                                                <p class="form-row form-row-wide">
-                                                    <input type="email" placeholder="Email" class="input-text">
-                                                </p>
-                                                <p class="form-row form-row-wide">
-                                                    <input type="password" class="input-text" placeholder="Password">
-                                                </p>
-                                                <p class="form-row">
-                                                    <input type="submit" class="button" value="Register">
-                                                </p>
-                                            </form>
-                                        </div>
-                                    </div>
+                        @if (Auth::check())
+                        <a href="{{ route('profile') }}" data-stelina="stelina-dropdown">
+        <span class="flaticon-user"></span>
+    </a>
+          @else
+    <a href="javascript:void(0);" data-stelina="stelina-dropdown">
+        <span class="flaticon-user"></span>
+    </a>
+    <div class="header-account stelina-submenu">
+            <!-- Display Login and Register tabs if user is not logged in -->
+            <div class="header-user-form-tabs">
+                <ul class="tab-link">
+                    <li class="active">
+                        <a data-toggle="tab" aria-expanded="true" href="#header-tab-login">Login</a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" aria-expanded="true" href="#header-tab-register">Register</a>
+                    </li>
+                </ul>
+                <div class="tab-container">
+                    <!-- Login Form -->
+                    <div id="header-tab-login" class="tab-panel active">
+                        <form method="POST" action="{{ route('login') }}" class="login form-login">
+                            @csrf
+                            @if ($errors->getBag('login')->any())
+                                <div>
+                                    @foreach ($errors->getBag('login')->all() as $error)
+                                        <p class="text-danger">{{ $error }}</p>
+                                    @endforeach
                                 </div>
-                            </div>
-                        </div>
+                            @endif
+                            <p class="form-row form-row-wide">
+                                <label class="text">Tài khoản</label>
+                                <input name="username" type="text" class="input-text" title="username" placeholder="Username" required>
+                            </p>
+                            <p class="form-row form-row-wide">
+                                <label class="text">Mật khẩu</label>
+                                <input name="password" type="password" class="input-text" title="password" placeholder="Password" required>
+                            </p>
+                            <p class="form-row">
+                                <input type="submit" class="button-submit" value="Đăng Nhập">
+                            </p>
+                        </form>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div id="header-tab-register" class="tab-panel">
+                        <form method="POST" action="{{ route('register') }}" class="register form-register">
+                            @csrf
+                            @if ($errors->getBag('register')->any())
+                                <div>
+                                    @foreach ($errors->getBag('register')->all() as $error)
+                                        <p class="text-danger">{{ $error }}</p>
+                                    @endforeach
+                                </div>
+                            @endif
+                            <p class="form-row form-row-wide">
+                                <label class="text">Email</label>
+                                <input name="email" type="email" class="input-text" title="email" placeholder="Email" required>
+                            </p>
+                            <p class="form-row form-row-wide">
+                                <label class="text">Tài khoản</label>
+                                <input name="username" type="text" class="input-text" title="username" placeholder="Username" required>
+                            </p>
+                            <p class="form-row form-row-wide">
+                                <label class="text">Họ và Tên</label>
+                                <input name="fullname" type="text" class="input-text" title="fullname" placeholder="Full Name" required>
+                            </p>
+                            <p class="form-row form-row-wide">
+                                <label class="text">Mật khẩu</label>
+                                <input name="password" type="password" class="input-text" title="password" placeholder="Password" required>
+                            </p>
+                            <p class="form-row">
+                                <span class="inline">
+                                    <input type="checkbox" id="cb2" name="terms" checked>
+                                    <label for="cb2" class="label-text">I agree to <span>Terms & Conditions</span></label>
+                                </span>
+                            </p>
+                            <p class="form-row">
+                                <input type="submit" class="button-submit" value="Đăng Ký">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        
+    </div>
+    @endif
+</div>
+
                         <a class="menu-bar mobile-navigation menu-toggle" href="#">
                             <span></span>
                             <span></span>
