@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Providers;
-
+use App\Models\LoaiNuocHoa;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,7 +23,9 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {
-        //
-    }
+{
+    View::composer('*', function ($view) {
+        $view->with('loaiNuocHoas', LoaiNuocHoa::all());
+    });
+}
 }

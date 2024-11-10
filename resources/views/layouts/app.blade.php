@@ -41,21 +41,14 @@
                     <div class="stelina-language stelina-dropdown">
                         <a href="#" class="active language-toggle" data-stelina="stelina-dropdown">
 								<span>
-									English (USD)
+									Việt Nam (VND)
 								</span>
                         </a>
                         <ul class="stelina-submenu">
                             <li class="switcher-option">
                                 <a href="#">
 										<span>
-											French (EUR)
-										</span>
-                                </a>
-                            </li>
-                            <li class="switcher-option">
-                                <a href="#">
-										<span>
-											Japanese (JPY)
+                                        English (USD)
 										</span>
                                 </a>
                             </li>
@@ -242,91 +235,30 @@
 							<span></span>
 							<span></span>
 						</span>
-                        <span class="text">All Categories</span>
+                        <span class="text">NAMINC</span>
                     </div>
-                    <div class="block-content verticalmenu-content">
-                        <ul class="stelina-nav-vertical vertical-menu stelina-clone-mobile-menu">
-                            <li class="menu-item">
-                                <a href="#" class="stelina-menu-item-title" title="New Arrivals">New Arrivals</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Hot Sale" href="#" class="stelina-menu-item-title">Hot Sale</a>
-                            </li>
-                            <li class="menu-item menu-item-has-children">
-                                <a title="Accessories" href="#" class="stelina-menu-item-title">Accessories</a>
-                                <span class="toggle-submenu"></span>
-                                <ul role="menu" class=" submenu">
-                                    <li class="menu-item">
-                                        <a title="Living" href="#" class="stelina-item-title">Living</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a title="Accents" href="#" class="stelina-item-title">Accents</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a title="New Arrivals" href="#" class="stelina-item-title">New Arrivals</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a title="Accessories" href="#" class="stelina-item-title">Accessories</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a title="Bedroom" href="#" class="stelina-item-title">Bedroom</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Accents" href="#" class="stelina-menu-item-title">Accents</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Tables" href="#" class="stelina-menu-item-title">Tables</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Dining" href="#" class="stelina-menu-item-title">Dining</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Lighting" href="#" class="stelina-menu-item-title">Lighting</a>
-                            </li>
-                            <li class="menu-item">
-                                <a title="Office" href="#" class="stelina-menu-item-title">Office</a>
-                            </li>
-                        </ul>
-                    </div>
+                   
                 </div>
                 <div class="header-nav">
                     <div class="container-wapper">
                         <ul class="stelina-clone-mobile-menu stelina-nav main-menu " id="menu-main-menu">
-                            <li class="menu-item  menu-item-has-children">
-                                <a href="index.html" class="stelina-menu-item-title" title="Home">Home</a>
-                                <span class="toggle-submenu"></span>
-                                <ul class="submenu">
-                                    <li class="menu-item">
-                                        <a href="index.html">Home 01</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="home2.html">Home 02</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="home3.html">Home 03</a>
-                                    </li>
-                                </ul>
+                        <li class="menu-item">
+                                <a href="/" class="stelina-menu-item-title" title="Trang chủ">Trang chủ</a>
                             </li>
                             <li class="menu-item menu-item-has-children">
-                                <a href="gridproducts.html" class="stelina-menu-item-title" title="Shop">Shop</a>
-                                <span class="toggle-submenu"></span>
-                                <ul class="submenu">
-                                    <li class="menu-item">
-                                        <a href="gridproducts.html">Grid Fullwidth</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="gridproducts_leftsidebar.html">Grid Left sidebar</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="gridproducts_bannerslider.html">Grid Bannerslider</a>
-                                    </li>
-                                    <li class="menu-item">
-                                        <a href="listproducts.html">List</a>
-                                    </li>
-                                </ul>
-                            </li>
+    <a href="#" class="stelina-menu-item-title" title="Sản phẩm">Sản phẩm</a>
+    <span class="toggle-submenu"></span>
+    <ul class="submenu">
+    @foreach($loaiNuocHoas as $loaiNuocHoa)
+        <li class="menu-item">
+            <a href="{{ route('products.loai', ['loai' => $loaiNuocHoa->code]) }}">
+                {{ $loaiNuocHoa->name }}
+            </a>
+        </li>
+    @endforeach
+</ul>
+
+</li>
                             <li class="menu-item  menu-item-has-children item-megamenu">
                                 <a href="#" class="stelina-menu-item-title" title="Pages">Pages</a>
                                 <span class="toggle-submenu"></span>
@@ -379,39 +311,8 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="menu-item  menu-item-has-children">
-                                <a href="inblog_right-siderbar.html" class="stelina-menu-item-title"
-                                   title="Blogs">Blogs</a>
-                                <span class="toggle-submenu"></span>
-                                <ul class="submenu">
-                                    <li class="menu-item menu-item-has-children">
-                                        <a href="#" class="stelina-menu-item-title" title="Blog Style">Blog Style</a>
-                                        <span class="toggle-submenu"></span>
-                                        <ul class="submenu">
-                                            <li class="menu-item">
-                                                <a href="bloggrid.html">Grid</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="bloglist.html">List</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="bloglist-leftsidebar.html">List Sidebar</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-has-children">
-                                        <a href="#" class="stelina-menu-item-title" title="Post Layout">Post Layout</a>
-                                        <span class="toggle-submenu"></span>
-                                        <ul class="submenu">
-                                            <li class="menu-item">
-                                                <a href="inblog_left-siderbar.html">Left Sidebar</a>
-                                            </li>
-                                            <li class="menu-item">
-                                                <a href="inblog_right-siderbar.html">Right Sidebar</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <li class="menu-item">
+                                <a href="#" class="stelina-menu-item-title" title="Blog">Blog</a>
                             </li>
                             <li class="menu-item">
                                 <a href="about.html" class="stelina-menu-item-title" title="About">About</a>
@@ -732,14 +633,6 @@
 <script src="{{ asset('assets/js/jquery.scrollbar.min.js') }}"></script>
 <script src="{{ asset('assets/js/frontend-plugin.js') }}"></script>
 
-</body>
-</html>
-
-     </div>
-                </div>
-               
-
-                
 
 </body>
 </html>

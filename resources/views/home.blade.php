@@ -31,23 +31,10 @@
               </div>
             </div>
           </div>
-          <div class="slider-item style3">
-            <div class="slider-inner equal-element">
-              <div class="slider-infor">
-                <h5 class="title-small">New Arrivals!</h5>
-                <h3 class="title-big">Trending
-                  <br/>Collection</h3>
-                <div class="price">Price from:
-                  <span class="number-price">$75.00</span>
-                </div>
-                <a href="#" class="button btn-shop-the-look bgroud-style">Shop now</a>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    <div class="banner-wrapp rows-space-35">
+    <!-- <div class="banner-wrapp rows-space-35">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -96,7 +83,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="stelina-tabs  default rows-space-40">
       <div class="container">
         <div class="tab-head">

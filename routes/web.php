@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController; // Add this line
+use App\Http\Controllers\PerfumeController; // Add this line
+use App\Http\Controllers\ProductController; // Add this line
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Define profile route with middleware and check the method name
 Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile')->middleware('auth');
+
+Route::get('/san-pham/{loai}', [ProductController::class, 'index'])->name('products.loai');
+
 
 // Group routes for guests (only accessible when not logged in)
 Route::middleware('guest')->group(function () {
