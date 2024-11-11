@@ -251,7 +251,7 @@
     <ul class="submenu">
     @foreach($loaiNuocHoas as $loaiNuocHoa)
         <li class="menu-item">
-            <a href="{{ route('products.loai', ['loai' => $loaiNuocHoa->code]) }}">
+            <a href="{{ route('products.index', ['code' => $loaiNuocHoa->code]) }}">
                 {{ $loaiNuocHoa->name }}
             </a>
         </li>

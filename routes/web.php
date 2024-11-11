@@ -26,7 +26,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 // Define profile route with middleware and check the method name
 Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile')->middleware('auth');
 
-Route::get('/san-pham/{loai}', [ProductController::class, 'index'])->name('products.loai');
+Route::get('/san-pham/{code}', [ProductController::class, 'index'])->name('products.index');
 
 
 // Group routes for guests (only accessible when not logged in)

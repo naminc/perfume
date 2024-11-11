@@ -10,7 +10,8 @@ class NuocHoa extends Model
     use HasFactory;
 
     protected $table = 'perfume_list'; // Define the table name if it differs from the model name
-    protected $fillable = ['name', 'description', 'price', 'id_type']; // Adjust fields as per your database structure
+    protected $fillable = ['name', 'description', 'price', 'id_type', 'images'];
+
 
     /**
      * Define a belongs-to relationship with LoaiNuocHoa.
