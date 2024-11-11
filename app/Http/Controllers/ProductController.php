@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\LoaiNuocHoa;
+use App\Models\NuocHoa;
+
 
 class ProductController extends Controller
 {
@@ -16,6 +18,11 @@ class ProductController extends Controller
 
     // Pass the data to the view
     return view('products.index', compact('nuocHoas', 'loaiNuocHoa'));
+}
+public function show($id)
+{
+    $product = NuocHoa::findOrFail($id);
+    return response()->json($product);
 }
 
 }

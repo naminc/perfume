@@ -36,7 +36,9 @@
 														<a href="#">Add to Wishlist</a>
 													</div>
 												</div>
-												<a href="#" class="button quick-wiew-button">Quick View</a>
+												<button class="quick-wiew-button" data-id="{{ $nuocHoa->id }}">Quick View</button>
+
+
 												<div class="loop-form-add-to-cart">
 													<button class="single_add_to_cart_button button">Add to cart
 													</button>

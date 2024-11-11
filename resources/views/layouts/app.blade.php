@@ -632,6 +632,13 @@
 <script src="{{ asset('assets/js/owl.thumbs.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.scrollbar.min.js') }}"></script>
 <script src="{{ asset('assets/js/frontend-plugin.js') }}"></script>
+<script src="{{ asset('assets/js/custom.js') }}"></script>
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+
 
 
 </body>
