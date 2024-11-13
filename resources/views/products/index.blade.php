@@ -31,19 +31,19 @@
                                                 <img src="{{ $nuocHoa->images }}" alt="{{ $nuocHoa->name }}">
                                             </a>
                                             <div class="thumb-group">
-												<div class="yith-wcwl-add-to-wishlist">
-													<div class="yith-wcwl-add-button">
-														<a href="#">Add to Wishlist</a>
-													</div>
-												</div>
-												<button class="quick-wiew-button" data-id="{{ $nuocHoa->id }}">Quick View</button>
+    <div class="yith-wcwl-add-to-wishlist">
+        <div class="yith-wcwl-add-button">
+            <a href="#">Add to Wishlist</a>
+        </div>
+    </div>
+    <!-- Thay đổi button Quick View thành link đến trang chi tiết -->
+    <a href="{{ route('products.show', ['code' => $nuocHoa->code]) }}" class="quick-wiew-button">View</a>
 
+    <div class="loop-form-add-to-cart">
+        <button class="single_add_to_cart_button button">Add to cart</button>
+    </div>
+</div>
 
-												<div class="loop-form-add-to-cart">
-													<button class="single_add_to_cart_button button">Add to cart
-													</button>
-												</div>
-											</div>
                                         </div>
                                     </div>
                                     <div class="product-info">

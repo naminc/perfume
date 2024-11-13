@@ -19,10 +19,11 @@ class ProductController extends Controller
     // Pass the data to the view
     return view('products.index', compact('nuocHoas', 'loaiNuocHoa'));
 }
-public function show($id)
+public function show($code)
 {
-    $product = NuocHoa::findOrFail($id);
-    return response()->json($product);
+    $nuocHoa = NuocHoa::where('code', $code)->firstOrFail();
+    return view('products.addcart', compact('nuocHoa'));
 }
+
 
 }

@@ -27,7 +27,8 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile')->middleware('auth');
 
 Route::get('/san-pham/{code}', [ProductController::class, 'index'])->name('products.index');
-Route::get('/product/{id}', [ProductController::class, 'show'])->name('product.show');
+Route::get('/nuoc-hoa/{code}', [ProductController::class, 'show'])->name('products.show');
+
 
 
 

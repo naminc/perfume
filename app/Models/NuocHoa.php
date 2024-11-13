@@ -20,4 +20,14 @@ class NuocHoa extends Model
     {
         return $this->belongsTo(LoaiNuocHoa::class, 'id_type');
     }
+    protected static function boot()
+{
+    parent::boot();
+
+    static::creating(function ($nuocHoa) {
+        // Ví dụ mã code: 'nuoc-hoa-name-of-perfume'
+        $nuocHoa->code = 'nuoc-hoa-' . \Str::slug($nuocHoa->name, '-');
+    });
+}
+
 }
