@@ -94,16 +94,16 @@
                                     </div>
                                 </div>
                                 <div class="quantity-add-to-cart">
-                                    <div class="quantity">
-                                        <div class="control">
-                                            <a class="btn-number qtyminus quantity-minus" href="#">-</a>
-                                            <input type="text" data-step="1" data-min="0" value="1" title="Qty"
-                                                   class="input-qty qty" size="4">
-                                            <a href="#" class="btn-number qtyplus quantity-plus">+</a>
-                                        </div>
-                                    </div>
-                                    <button class="single_add_to_cart_button button">Add to cart</button>
-                                </div>
+    <div class="quantity">
+        <div class="control">
+            <a class="btn-number qtyminus quantity-minus" href="#">-</a>
+            <input type="text" data-step="1" data-min="0" value="1" title="Qty" class="input-qty qty" id="quantity" size="4">
+            <a href="#" class="btn-number qtyplus quantity-plus">+</a>
+        </div>
+    </div>
+    <button id="addToCartButton" class="single_add_to_cart_button button add-to-cart" data-id="{{ $nuocHoa->id }}">Add to cart</button>
+</div>
+
                             </div>
                         </div>
                     </div>
@@ -253,6 +253,44 @@
         </div>
     </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    updateCartCount();
+      $('.add-to-cart').on('click', function() {
+          var productId = $(this).data('id');
+          $.ajax({
+              url: '{{ route("cart.add") }}',
+              method: 'POST',
+              data: {
+                  _token: '{{ csrf_token() }}',
+                  id: productId,
+                  quantity: 1
+              },
+              success: function(response) {
+                  alert(response.message);
+                  updateCartCount();
+              },
+              error: function() {
+                  alert('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.');
+              }
+          });
+      });
+ 
+  function updateCartCount() {
+        $.ajax({
+            url: '/cart/count',
+            method: 'GET',
+            success: function (data) {
+                $('.count').text(data.totalItems); // Cập nhật số lượng item
+                $('.no-product .text span').text(data.totalQuantity + ' item(s)'); // Cập nhật tổng sản phẩm
+            }
+        });
+    }
+});
+</script>
+
+
 <!-- <div class="product-detail">
     <h1>{{ $nuocHoa->name }}</h1>
     <img src="{{ $nuocHoa->images }}" alt="{{ $nuocHoa->name }}">

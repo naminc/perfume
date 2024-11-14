@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProfileController; // Add this line
 use App\Http\Controllers\PerfumeController; // Add this line
 use App\Http\Controllers\ProductController; // Add this line
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,9 @@ Route::get('/profile', [ProfileController::class, 'showProfile'])->name('profile
 
 Route::get('/san-pham/{code}', [ProductController::class, 'index'])->name('products.index');
 Route::get('/nuoc-hoa/{code}', [ProductController::class, 'show'])->name('products.show');
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
+Route::get('/cart/count', [CartController::class, 'cartCount'])->name('cart.count');
 
 
 

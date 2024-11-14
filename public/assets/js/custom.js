@@ -1,3 +1,7 @@
+
+
+
+
 function slick_quickview_popup() {
     $('.slider-for').slick({
         slidesToShow: 1,

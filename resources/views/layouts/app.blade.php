@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png"/>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
           rel="stylesheet">
@@ -24,7 +26,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/mobile-menu.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fonts/flaticon/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body class="home">
@@ -613,7 +616,7 @@
 <a href="#" class="backtotop">
     <i class="fa fa-angle-double-up"></i>
 </a>
-<script src="{{ asset('assets/js/jquery-1.12.4.min.js') }}"></script>
+
 <script src="{{ asset('assets/js/jquery.plugin-countdown.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery-countdown.min.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
@@ -633,9 +636,9 @@
 <script src="{{ asset('assets/js/jquery.scrollbar.min.js') }}"></script>
 <script src="{{ asset('assets/js/frontend-plugin.js') }}"></script>
 <script src="{{ asset('assets/js/custom.js') }}"></script>
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
 
 
