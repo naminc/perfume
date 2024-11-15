@@ -57,4 +57,37 @@ public function cartCount()
 }
 
 
+
+public function clearCart()
+{
+    Session::forget('cart');
+    return redirect()->back()->with('message', 'Cart cleared successfully.');
+}
+public function updateCart(Request $request)
+{
+    $cart = Session::get('cart', []);
+    $quantities = $request->input('quantities', []);
+    
+    foreach ($quantities as $id => $quantity) {
+        if (isset($cart[$id])) {
+            $cart[$id]['quantity'] = max(1, intval($quantity));
+        }
+    }
+
+    Session::put('cart', $cart);
+
+    return redirect()->route('cart.show')->with('message', 'Cart updated successfully.');
+}
+public function removeFromCart($id)
+{
+    $cart = Session::get('cart', []);
+    if (isset($cart[$id])) {
+        unset($cart[$id]);
+        Session::put('cart', $cart);
+    }
+    return redirect()->back()->with('message', 'Product removed from cart.');
+}
+
+
+
 }

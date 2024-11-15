@@ -268,11 +268,11 @@
                   quantity: 1
               },
               success: function(response) {
-                  alert(response.message);
+                  console.log(response.message);
                   updateCartCount();
               },
               error: function() {
-                  alert('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.');
+                  console.log('Có lỗi xảy ra khi thêm sản phẩm vào giỏ hàng.');
               }
           });
       });
@@ -290,13 +290,4 @@
 });
 </script>
 
-
-<!-- <div class="product-detail">
-    <h1>{{ $nuocHoa->name }}</h1>
-    <img src="{{ $nuocHoa->images }}" alt="{{ $nuocHoa->name }}">
-    <p>Giá: {{ number_format($nuocHoa->price, 0, ',', '.') }} VND</p>
-    <p>Mô tả: {{ $nuocHoa->description }}</p>
-    <p>Nồng độ: {{ $nuocHoa->concentration }}</p>
-    <p>Dung tích: {{ $nuocHoa->volume_ml }} ml</p>
-</div> -->
 @endsection

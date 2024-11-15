@@ -32,7 +32,10 @@ Route::get('/nuoc-hoa/{code}', [ProductController::class, 'show'])->name('produc
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
 Route::get('/cart/count', [CartController::class, 'cartCount'])->name('cart.count');
-
+Route::delete('/cart/clear', [CartController::class, 'clearCart'])->name('cart.clear');
+Route::delete('/cart/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::get('/checkout', [CartController::class, 'checkout'])->name('checkout');
+Route::post('/cart/update', [CartController::class, 'updateCart'])->name('cart.update');
 
 
 

@@ -114,19 +114,60 @@
                             <a href="javascript:void(0);" class="shopcart-icon" data-stelina="stelina-dropdown">
                                 Cart
                                 <span class="count">
-									0
-									</span>
+                                    {{ Session::has('cart') ? count(Session::get('cart')) : 0 }}
+                                </span>
                             </a>
-                            <div class="no-product stelina-submenu">
-                                <p class="text">
-                                    You have
-                                    <span>
-											 0 item(s)
-										</span>
-                                    in your bag
-                                </p>
+                            <div class="shopcart-description stelina-submenu">
+                                <div class="content-wrap">
+                                    <h3 class="title">Shopping Cart</h3>
+                                    @if(Session::has('cart') && count(Session::get('cart')) > 0)
+                                        <ul class="minicart-items">
+                                            @foreach(Session::get('cart') as $productId => $product)
+                                                <li class="product-cart mini_cart_item">
+                                                    <a href="#" class="product-media">
+                                                        <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
+                                                    </a>
+                                                    <div class="product-details">
+                                                        <h5 class="product-name">
+                                                            <a href="#">{{ $product['name'] }}</a>
+                                                        </h5>
+                                                        <span class="product-price">
+                                                            <span class="price">{{ number_format($product['price'], 0, ',', '.') }} VND</span>
+                                                        </span>
+                                                        <span class="product-quantity">(x{{ $product['quantity'] }})</span>
+                                                        <div class="product-remove">
+                                                            <form action="{{ route('cart.remove', $productId) }}" method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit">
+                                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        <div class="subtotal">
+                                            <span class="total-title">Subtotal: </span>
+                                            <span class="total-price">
+                                                <span class="price-amount">
+                                                    {{ number_format(array_sum(array_column(Session::get('cart'), 'price')), 0, ',', '.') }} VND
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="actions">
+                                           
+                                            <a class="button button-viewcart" href="{{ route('cart.show') }}">View Bag</a>
+                                            <a href="{{ route('checkout') }}" class="button button-checkout">Checkout</a>
+                                        </div>
+                                    @else
+                                        <p class="no-product">Your cart is empty.</p>
+                                    @endif
+                                </div>
                             </div>
                         </div>
+                        
                         <div class="block-account block-header stelina-dropdown">
                         @if (Auth::check())
                         <a href="{{ route('profile') }}" data-stelina="stelina-dropdown">
